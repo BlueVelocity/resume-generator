@@ -5,9 +5,12 @@ export default {
     extend: {
       colors: {
         background: "#e2e8f0",
-        main: "#1e293b",
-        secondary: "#1e293b",
+        main: "#111827",
+        secondary: "#1f2937",
         accent: "#ea580c",
+      },
+      gridTemplateColumns: {
+        main: "30rem minmax(50rem, 1fr)",
       },
     },
   },
