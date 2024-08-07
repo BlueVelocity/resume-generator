@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-//Takes in {title: String, content: Objects[{id: number, schoolName: String, titleOfStudy: String, dateOfStudy: String}]}
+
 export default function ({ title, content }) {
   return (
     <section className="grid-auto">
@@ -10,8 +10,8 @@ export default function ({ title, content }) {
             if (key === "id") return null;
             return (
               <Fragment key={key}>
-                <label className="font-bold">{key}:</label>
-                <p className="justify-self-start">{content[`${key}`]}</p>
+                <label className="font-bold">{content[`${key}`].label}:</label>
+                <p className="justify-self-start">{content[`${key}`].data}</p>
               </Fragment>
             );
           })}

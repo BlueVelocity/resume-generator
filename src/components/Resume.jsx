@@ -1,5 +1,4 @@
-import EdResumeSection from "./EdResumeSection.jsx";
-import PracResumeSection from "./PracResumeSection.jsx";
+import ResumeSection from "./ResumeSection.jsx";
 
 export default function ({ edExperience, pracExperience }) {
   return (
@@ -14,9 +13,9 @@ export default function ({ edExperience, pracExperience }) {
         (905) 245-9087 | theGreatKazoo@gmail.com
       </p>
       <hr className="my-4 mx-8" />
-      <EdResumeSection title="EDUCATION" content={edExperience} />
+      <ResumeSection title="EDUCATION" content={edExperience} />
       <hr className="my-4 mx-8" />
-      <PracResumeSection
+      <ResumeSection
         title="PRACTICAL EXPERIENCE"
         content={pracExperience}
       />
