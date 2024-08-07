@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export default function FieldCollection({ fields }) {
   return (
     <form className="w-full my-4 px-12" onSubmit={(e) => e.preventDefault()}>
@@ -12,7 +10,7 @@ export default function FieldCollection({ fields }) {
                 type={fieldData.type}
                 id={fieldData.id}
                 required
-                pattern={fieldData.pattern !== undefined && fieldData.pattern}
+                pattern={fieldData.pattern}
                 className="text-black outline outline-1 rounded p-0.5 invalid:outline-red-500 valid:outline-2 valid:outline-green-500"
               />
             </li>

@@ -1,6 +1,11 @@
 export default {
   general: [
-    { id: 1, label: "Full Name", type: "text", pattern: "^[^\s]+(\s+[^\s]+)+$" },
+    {
+      id: 1,
+      label: "Full Name",
+      type: "text",
+      pattern: "^[^\\s]+(\\s+[^\\s]+)+$",
+    },
     { id: 2, label: "Email", type: "email" },
     {
       id: 3,

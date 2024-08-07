@@ -10,7 +10,7 @@ export default {
         accent: "#ea580c",
       },
       gridTemplateColumns: {
-        main: "30rem minmax(50rem, 1fr)",
+        main: "30rem minmax(210mm, 1fr)",
       },
     },
   },
