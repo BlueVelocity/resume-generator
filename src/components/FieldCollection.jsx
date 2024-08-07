@@ -6,14 +6,14 @@ export default function FieldCollection({ fields }) {
       <ul>
         {fields.map((fieldData) => {
           return (
-            <li key={fieldData.id} className="flex flex-col my-2 pr-20">
+            <li key={fieldData.id} className="flex flex-col my-2">
               <label htmlFor={fieldData.id}>{fieldData.label}</label>
               <input
                 type={fieldData.type}
                 id={fieldData.id}
                 required
                 pattern={fieldData.pattern !== undefined && fieldData.pattern}
-                className="text-black outline outline-2 rounded p-0.5 invalid:outline-red-500 valid:outline-green-500"
+                className="text-black outline outline-1 rounded p-0.5 invalid:outline-red-500 valid:outline-2 valid:outline-green-500"
               />
             </li>
           );
