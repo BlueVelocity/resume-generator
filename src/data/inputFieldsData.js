@@ -6,9 +6,10 @@ export default {
       type: "text",
       pattern: "^[^\\s]+(\\s+[^\\s]+)+$",
     },
-    { id: 2, label: "Email", type: "email" },
+    { id: 2, label: "Address", type: "text" },
+    { id: 3, label: "Email", type: "email" },
     {
-      id: 3,
+      id: 4,
       label: "Phone Number",
       type: "tel",
     },
