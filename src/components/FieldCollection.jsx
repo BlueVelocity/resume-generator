@@ -10,7 +10,7 @@ export default function FieldCollection({ fields, inputData, handleChange }) {
                 type={fieldData.type}
                 name={inputData === undefined ? undefined : Object.keys(inputData)[index + 1]}
                 id={fieldData.id}
-                required
+                required={(fieldData.required === undefined || fieldData.required === true)}
                 pattern={fieldData.pattern}
                 className="text-black outline outline-1 rounded p-0.5 invalid:outline-red-500 valid:outline-2 valid:outline-green-500"
                 defaultValue={inputData === undefined ? undefined : inputData[`${Object.keys(inputData)[index + 1]}`].data}

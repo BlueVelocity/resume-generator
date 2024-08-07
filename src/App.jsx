@@ -45,10 +45,12 @@ export default function App() {
 
   const handlePracChange = (e) => {
     const { name, value } = e.target;
-    setPracExperience(prevState => ({
-      ...prevState,
-      [name]: { ...prevState[`${name}`], data: value },
-    }));
+    setPracExperience(prevState => {
+      if (name === "endDate" && value === "") {
+        return { ...prevState, [name]: { ...prevState[`${name}`], data: "Current" } }
+      }
+      return { ...prevState, [name]: { ...prevState[`${name}`], data: value } }
+    });
   }
 
   return (

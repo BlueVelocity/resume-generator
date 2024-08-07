@@ -24,6 +24,6 @@ export default {
     { id: 2, label: "Position Title", type: "text" },
     { id: 3, label: "Main Responsibilities", type: "text" },
     { id: 4, label: "Start Date", type: "date" },
-    { id: 5, label: "End Date", type: "date" },
+    { id: 5, label: "End Date (Leave blank for current)", type: "date", required: false },
   ],
 };
