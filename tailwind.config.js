@@ -10,7 +10,10 @@ export default {
         accent: "#ea580c",
       },
       gridTemplateColumns: {
-        main: "30rem minmax(210mm, 1fr)",
+        main: "minmax(20rem, 30rem) minmax(210mm, 1fr)",
+      },
+      gridTemplateRows: {
+        main: "max-content max-content",
       },
       fontFamily: {
         main: ["Nunito", "Times New Roman", "sans-serif"],

@@ -1,6 +1,6 @@
 export default function () {
   return (
-    <div className="flex-1 flex flex-col justify-start text-center max-w-[210mm] min-w-[210mm] min-h-[266mm] bg-grey text-black border-x-2">
+    <div className="flex-1 flex flex-col justify-start text-center max-w-[210mm] min-w-[210mm] min-h-[266mm] bg-white text-black border-x-2">
       <p className="align-self-center text-4xl font-special text-bold pt-16">
         Slim Shady
       </p>
