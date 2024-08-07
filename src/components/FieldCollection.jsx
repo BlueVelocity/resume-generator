@@ -17,9 +17,14 @@ export default function FieldCollection({ fields }) {
           );
         })}
       </ul>
-      <button className="justify-self-center text-black bg-accent rounded px-4 py-1 my-2">
-        Submit
-      </button>
+      <div>
+        <button className="text-black bg-accent rounded px-4 py-1 my-2">
+          Submit
+        </button>
+        <button className="text-black bg-accent rounded px-4 py-1 my-2 ml-4">
+          Edit
+        </button>
+      </div>
     </form>
   );
 }

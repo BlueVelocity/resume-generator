@@ -13,7 +13,12 @@ export default {
       type: "tel",
     },
   ],
-  experience: [
+  edExperience: [
+    { id: 1, label: "School Name", type: "text" },
+    { id: 2, label: "Title of Study", type: "text" },
+    { id: 3, label: "Date of Study", type: "date" },
+  ],
+  pracExperience: [
     { id: 1, label: "Company Name", type: "text" },
     { id: 2, label: "Position Title", type: "text" },
     { id: 3, label: "Main Responsibilities", type: "text" },

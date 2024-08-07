@@ -5,7 +5,8 @@ export default function UserInput() {
   return (
     <div className="flex-1 w-full bg-secondary border border-solid rounded-2xl">
       <FieldCollection fields={inputFieldsData.general} />
-      <FieldCollection fields={inputFieldsData.experience} />
+      <FieldCollection fields={inputFieldsData.edExperience} />
+      <FieldCollection fields={inputFieldsData.pracExperience} />
     </div>
   );
 }
