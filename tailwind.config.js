@@ -12,6 +12,10 @@ export default {
       gridTemplateColumns: {
         main: "30rem minmax(210mm, 1fr)",
       },
+      fontFamily: {
+        main: ["Nunito", "Times New Roman", "sans-serif"],
+        special: ["Times New Roman", "Nunito", "sans-serif"],
+      },
     },
   },
   plugins: [],
