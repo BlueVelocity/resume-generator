@@ -1,7 +1,7 @@
 import EdResumeSection from "./EdResumeSection.jsx";
 import PracResumeSection from "./PracResumeSection.jsx";
 
-export default function () {
+export default function ({ edExperience, pracExperience }) {
   return (
     <div className="flex-1 flex flex-col justify-start text-center max-w-[210mm] min-w-[210mm] min-h-[266mm] bg-white text-black border-x-2">
       <p className="align-self-center text-4xl font-special text-bold pt-16">
@@ -14,30 +14,11 @@ export default function () {
         (905) 245-9087 | theGreatKazoo@gmail.com
       </p>
       <hr className="my-4 mx-8" />
-      <EdResumeSection
-        title="EDUCATION"
-        content={[
-          {
-            id: 1,
-            schoolName: "Young Bernards Academy",
-            titleOfStudy: "Bakers Bachelor",
-            dateOfStudy: "2024-06-21 to Current",
-          },
-        ]}
-      />
+      <EdResumeSection title="EDUCATION" content={edExperience} />
       <hr className="my-4 mx-8" />
       <PracResumeSection
         title="PRACTICAL EXPERIENCE"
-        content={[
-          {
-            id: 1,
-            companyName: "Walmart",
-            positionTitle: "Supervisor",
-            mainResponsibilities: "Cool dude",
-            startDate: "2024-01-01",
-            endDate: "2024.02-02",
-          },
-        ]}
+        content={pracExperience}
       />
     </div>
   );
