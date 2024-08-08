@@ -1,7 +1,16 @@
-export default function FieldCollection({ fields, inputData, handleChange }) {
+import { useState } from 'react';
+
+export default function FieldCollection({ sectionName, fields, inputData, handleChange }) {
+  const [isMinimized, setIsMinimized] = useState(false);
+
+  const handleMinimize = () => {
+    isMinimized ? setIsMinimized(false) : setIsMinimized(true);
+  }
+
   return (
     <form className="w-full my-4 px-12" onSubmit={(e) => e.preventDefault()}>
-      <ul>
+      <p className="text-2xl">{sectionName}</p>
+      <ul className={`${isMinimized ? "hidden" : ""}`}>
         {fields.map((fieldData, index) => {
           return (
             <li key={fieldData.id} className="flex flex-col my-2">
@@ -21,11 +30,8 @@ export default function FieldCollection({ fields, inputData, handleChange }) {
         })}
       </ul>
       <div>
-        <button className="text-black bg-accent rounded px-4 py-1 my-2">
-          Submit
-        </button>
-        <button className="text-black bg-accent rounded px-4 py-1 my-2 ml-4">
-          Edit
+        <button onClick={handleMinimize} className="text-black bg-accent rounded px-4 py-1 my-2">
+          {isMinimized ? "Maximize" : "Minimize"}
         </button>
       </div>
     </form>

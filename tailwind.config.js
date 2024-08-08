@@ -20,6 +20,13 @@ export default {
         special: ["Times New Roman", "Nunito", "sans-serif"],
       },
     },
+    animation: {
+      "minimize": "minimize 1s linear"
+    },
+    keyframes: {
+      "0%": { maxHeight: "100%" },
+      "100%": { maxHeight: "0%" },
+    }
   },
   plugins: [],
 };
