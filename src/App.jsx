@@ -1,57 +1,70 @@
 import { useState } from "react";
 import UserInput from "./components/UserInput.jsx";
 import ResumeDisplay from "./components/ResumeDisplay.jsx";
+import defaultData from "./data/defaultData.js";
 
 export default function App() {
-  const [genInfo, setGenInfo] = useState({
-    id: 1,
-    fullName: { data: "Slim Shady", type: "text" },
-    address: { data: "123, Henesy Street, Cleveland, OH L8F 3F4", type: "text" },
-    email: { data: "spaghetti@hotmail.com", type: "email" },
-    phoneNumber: { data: "226 507-1234", type: "tel" }
-  });
+  const [genInfo, setGenInfo] = useState(defaultData.genInfo);
 
   const handleGenChange = (e) => {
     const { name, value } = e.target;
-    setGenInfo(prevState => ({
-      ...prevState,
-      [name]: { ...prevState[`${name}`], data: value },
-    }));
+    setGenInfo((prevState) => {
+      const currentObj = prevState[0];
+      const currArr = [...prevState];
+      const newObj = {
+        ...currentObj,
+        [name]: { ...currentObj[`${name}`], data: value },
+      };
+      currArr[0] = newObj;
+      return currArr;
+    });
   };
 
-  const [edExperience, setEdExperience] = useState({
-    id: 1,
-    schoolName: { label: "School Name", data: "Young Bernards Academy", type: "text" },
-    titleOfStudy: { label: "Title of Study", data: "Bakers Bachelor", type: "text" },
-    dateOfStudy: { label: "Date of Study", data: "2024-06-21", type: "date" }
-  });
+  const [edExperience, setEdExperience] = useState(defaultData.edExperience);
 
   const handleEdChange = (e) => {
     const { name, value } = e.target;
-    setEdExperience(prevState => ({
-      ...prevState,
-      [name]: { ...prevState[`${name}`], data: value },
-    }));
+    const dataId = Number(e.target.getAttribute("data-id"));
+    setEdExperience((prevState) => {
+      const currentObjIndex = prevState.findIndex((obj) => obj.id === dataId);
+      const currentObj = prevState[currentObjIndex];
+      const currArr = [...prevState];
+      const newObj = {
+        ...currentObj,
+        [name]: { ...currentObj[`${name}`], data: value },
+      };
+      currArr[currentObjIndex] = newObj;
+      return currArr;
+    });
   };
 
-  const [pracExperience, setPracExperience] = useState({
-    id: 1,
-    companyName: { label: "Company Name", data: "Walmart", type: "text" },
-    positionTitle: { label: "Position Title", data: "Supervisor", type: "text" },
-    mainResponsibilities: { label: "Main Responsibilities", data: "Cool dude", type: "text" },
-    startDate: { label: "Start Date", data: "2024-01-01", type: "date" },
-    endDate: { label: "End Date", data: "2024-02-02", type: "date" },
-  });
+  const [pracExperience, setPracExperience] = useState(
+    defaultData.pracExperience,
+  );
 
   const handlePracChange = (e) => {
     const { name, value } = e.target;
-    setPracExperience(prevState => {
+    const dataId = Number(e.target.getAttribute("data-id"));
+    setPracExperience((prevState) => {
+      const currentObjIndex = prevState.findIndex((obj) => obj.id === dataId);
+      const currentObj = prevState[currentObjIndex];
+      const currArr = [...prevState];
       if (name === "endDate" && value === "") {
-        return { ...prevState, [name]: { ...prevState[`${name}`], data: "Current" } }
+        const newObj = {
+          ...currentObj,
+          [name]: { ...currentObj[`${name}`], data: "Current" },
+        };
+        currArr[currentObjIndex] = newObj;
+        return currArr;
       }
-      return { ...prevState, [name]: { ...prevState[`${name}`], data: value } }
+      const newObj = {
+        ...currentObj,
+        [name]: { ...currentObj[`${name}`], data: value },
+      };
+      currArr[currentObjIndex] = newObj;
+      return currArr;
     });
-  }
+  };
 
   return (
     <main className="flex-1 grid grid-cols-main grid-rows-main gap-4 max-w-screen-2xl mx-4">
