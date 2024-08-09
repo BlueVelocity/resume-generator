@@ -5,6 +5,10 @@ import defaultData from "./data/defaultData.js";
 
 export default function App() {
   const [genInfo, setGenInfo] = useState(defaultData.genInfo);
+  const [edExperience, setEdExperience] = useState(defaultData.edExperience);
+  const [pracExperience, setPracExperience] = useState(
+    defaultData.pracExperience,
+  );
 
   const handleGenChange = (e) => {
     const { name, value } = e.target;
@@ -19,8 +23,6 @@ export default function App() {
       return currArr;
     });
   };
-
-  const [edExperience, setEdExperience] = useState(defaultData.edExperience);
 
   const handleEdChange = (e) => {
     const { name, value } = e.target;
@@ -37,10 +39,6 @@ export default function App() {
       return currArr;
     });
   };
-
-  const [pracExperience, setPracExperience] = useState(
-    defaultData.pracExperience,
-  );
 
   const handlePracChange = (e) => {
     const { name, value } = e.target;
@@ -66,6 +64,17 @@ export default function App() {
     });
   };
 
+  const handleAddFields = (e) => {
+    const fieldName = e.target.name;
+    if (fieldName === "ed") {
+      setEdExperience((edExp) => {
+        [...edExp, defaultData.edExperience];
+      });
+    } else {
+      set = [...edExperience, defaultData.edExperience];
+    }
+  };
+
   return (
     <main className="flex-1 grid grid-cols-main grid-rows-main gap-4 max-w-screen-2xl mx-4">
       <UserInput
@@ -75,6 +84,7 @@ export default function App() {
         handleEdChange={handleEdChange}
         pracExperience={pracExperience}
         handlePracChange={handlePracChange}
+        handleAddFields={handleAddFields}
       />
       <ResumeDisplay
         genInfo={genInfo}
