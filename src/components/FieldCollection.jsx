@@ -6,6 +6,7 @@ export default function FieldCollection({
   inputData,
   handleChange,
   handleAddClick,
+  handleDeleteClick,
 }) {
   const [isMinimized, setIsMinimized] = useState(true);
 
@@ -16,14 +17,26 @@ export default function FieldCollection({
   return (
     <form className="w-full my-4 px-12" onSubmit={(e) => e.preventDefault()}>
       <p className="text-2xl">{sectionName}</p>
-      {inputData.map((dataSegment, index) => {
+      {inputData.map((dataSegment, dataIndex) => {
         return (
           <ul key={dataSegment.id} className={`${isMinimized ? "hidden" : ""}`}>
-            {index !== 0 && <hr className="my-4 border-accent" />}
+            {dataIndex !== 0 && <hr className="my-4 border-accent" />}
             {fields.map((fieldData, index) => {
               return (
                 <li key={fieldData.id} className="flex flex-col my-2">
-                  <label htmlFor={fieldData.id}>{fieldData.label}</label>
+                  <div className="flex">
+                    <label htmlFor={fieldData.id}>{fieldData.label}</label>
+                    {index === 0 && sectionName !== "General Info" && (
+                      <button
+                        name={sectionName + " Delete Button"}
+                        data-id={dataSegment.id}
+                        className="bg-red-600 ml-auto px-6 my-1 rounded text-xs"
+                        onClick={handleDeleteClick}
+                      >
+                        -
+                      </button>
+                    )}
+                  </div>
                   <input
                     type={fieldData.type}
                     name={
@@ -42,11 +55,13 @@ export default function FieldCollection({
                       dataSegment === undefined
                         ? undefined
                         : dataSegment[`${Object.keys(dataSegment)[index + 1]}`]
-                          .data
+                            .data
                     }
                     onChange={handleChange}
                     data-id={dataSegment.id}
-                    placeholder={fieldData.placeholder != "" && fieldData.placeholder}
+                    placeholder={
+                      fieldData.placeholder != "" && fieldData.placeholder
+                    }
                   />
                 </li>
               );
@@ -61,13 +76,15 @@ export default function FieldCollection({
         >
           {isMinimized ? "Maximize" : "Minimize"}
         </button>
-        {sectionName != "General Info" && <button
-          name={sectionName + " Add Button"}
-          onClick={handleAddClick}
-          className={`${isMinimized ? "hidden" : ""} text-black bg-green-600 rounded px-3 py-1 my-2 ml-2`}
-        >
-          +
-        </button>}
+        {sectionName != "General Info" && (
+          <button
+            name={sectionName + " Add Button"}
+            onClick={handleAddClick}
+            className={`${isMinimized ? "hidden" : ""} text-black bg-green-600 rounded px-3 py-1 my-2 ml-2`}
+          >
+            +
+          </button>
+        )}
       </div>
     </form>
   );

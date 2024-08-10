@@ -8,7 +8,8 @@ export default function UserInput({
   handleEdChange,
   pracExperience,
   handlePracChange,
-  handleAddFields
+  handleAddFields,
+  handleDeleteFields,
 }) {
   return (
     <div className="sticky top-6 flex-1 w-full bg-secondary border border-solid rounded">
@@ -24,6 +25,7 @@ export default function UserInput({
         inputData={edExperience}
         handleChange={handleEdChange}
         handleAddClick={handleAddFields}
+        handleDeleteClick={handleDeleteFields}
       />
       <FieldCollection
         sectionName="Practical Experience"
@@ -31,6 +33,7 @@ export default function UserInput({
         inputData={pracExperience}
         handleChange={handlePracChange}
         handleAddClick={handleAddFields}
+        handleDeleteClick={handleDeleteFields}
       />
     </div>
   );
