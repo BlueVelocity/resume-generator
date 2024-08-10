@@ -46,6 +46,7 @@ export default function FieldCollection({
                     }
                     onChange={handleChange}
                     data-id={dataSegment.id}
+                    placeholder={fieldData.placeholder != "" && fieldData.placeholder}
                   />
                 </li>
               );
@@ -60,13 +61,13 @@ export default function FieldCollection({
         >
           {isMinimized ? "Maximize" : "Minimize"}
         </button>
-        <button
+        {sectionName != "General Info" && <button
           name={sectionName + " Add Button"}
           onClick={handleAddClick}
           className={`${isMinimized ? "hidden" : ""} text-black bg-green-600 rounded px-3 py-1 my-2 ml-2`}
         >
           +
-        </button>
+        </button>}
       </div>
     </form>
   );

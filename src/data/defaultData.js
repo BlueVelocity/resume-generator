@@ -2,13 +2,13 @@ export default {
   genInfo: [
     {
       id: 1,
-      fullName: { data: "[Full Name]", type: "text" },
+      fullName: { data: "", type: "text" },
       address: {
-        data: "[House #], [St. Name], [City], [State/Province] [ZIP Code]",
+        data: "",
         type: "text",
       },
-      email: { data: "[Email]", type: "email" },
-      phoneNumber: { data: "226 507-1234", type: "tel" },
+      email: { data: "", type: "email", placeholder: "Email" },
+      phoneNumber: { data: "", type: "tel" },
     },
   ],
   edExperience: [
@@ -16,33 +16,33 @@ export default {
       id: 1,
       schoolName: {
         label: "School Name",
-        data: "Young Bernards Academy",
+        data: "",
         type: "text",
       },
       titleOfStudy: {
         label: "Title of Study",
-        data: "Bakers Bachelor",
+        data: "",
         type: "text",
       },
-      dateOfStudy: { label: "Date of Study", data: "2024-06-21", type: "date" },
+      dateOfStudy: { label: "Date of Study", data: "", type: "date" },
     },
   ],
   pracExperience: [
     {
       id: 1,
-      companyName: { label: "Company Name", data: "Walmart", type: "text" },
+      companyName: { label: "Company Name", data: "", type: "text" },
       positionTitle: {
         label: "Position Title",
-        data: "Supervisor",
+        data: "",
         type: "text",
       },
       mainResponsibilities: {
         label: "Main Responsibilities",
-        data: "Cool dude",
+        data: "",
         type: "text",
       },
-      startDate: { label: "Start Date", data: "2024-01-01", type: "date" },
-      endDate: { label: "End Date", data: "2024-02-02", type: "date" },
+      startDate: { label: "Start Date", data: "", type: "date" },
+      endDate: { label: "End Date", data: "", type: "date" },
     },
   ],
 };
