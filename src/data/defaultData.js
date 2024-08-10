@@ -2,12 +2,12 @@ export default {
   genInfo: [
     {
       id: 1,
-      fullName: { data: "Slim Shady", type: "text" },
+      fullName: { data: "[Full Name]", type: "text" },
       address: {
-        data: "123, Henesy Street, Cleveland, OH L8F 3F4",
+        data: "[House #], [St. Name], [City], [State/Province] [ZIP Code]",
         type: "text",
       },
-      email: { data: "spaghetti@hotmail.com", type: "email" },
+      email: { data: "[Email]", type: "email" },
       phoneNumber: { data: "226 507-1234", type: "tel" },
     },
   ],

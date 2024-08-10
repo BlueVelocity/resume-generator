@@ -3,6 +3,9 @@ import UserInput from "./components/UserInput.jsx";
 import ResumeDisplay from "./components/ResumeDisplay.jsx";
 import defaultData from "./data/defaultData.js";
 
+const defaultEdData = JSON.parse(JSON.stringify(defaultData.edExperience[0]));
+const defaultPracData = JSON.parse(JSON.stringify(defaultData.pracExperience[0]));
+
 export default function App() {
   const [genInfo, setGenInfo] = useState(defaultData.genInfo);
   const [edExperience, setEdExperience] = useState(defaultData.edExperience);
@@ -66,12 +69,18 @@ export default function App() {
 
   const handleAddFields = (e) => {
     const fieldName = e.target.name;
-    if (fieldName === "ed") {
+    if (fieldName === "Educational Experience Add Button") {
       setEdExperience((edExp) => {
-        [...edExp, defaultData.edExperience];
+        const newData = JSON.parse(JSON.stringify(defaultEdData));
+        newData.id = edExp.length + 1;
+        return [...edExp, newData]
       });
-    } else {
-      set = [...edExperience, defaultData.edExperience];
+    } else if (fieldName === "Practical Experience Add Button") {
+      setPracExperience((pracExp) => {
+        const newData = JSON.parse(JSON.stringify(defaultPracData));
+        newData.id = pracExp.length + 1;
+        return [...pracExp, newData]
+      });
     }
   };
 

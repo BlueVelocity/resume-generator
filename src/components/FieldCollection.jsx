@@ -5,6 +5,7 @@ export default function FieldCollection({
   fields,
   inputData,
   handleChange,
+  handleAddClick,
 }) {
   const [isMinimized, setIsMinimized] = useState(true);
 
@@ -15,9 +16,10 @@ export default function FieldCollection({
   return (
     <form className="w-full my-4 px-12" onSubmit={(e) => e.preventDefault()}>
       <p className="text-2xl">{sectionName}</p>
-      {inputData.map((dataSegment) => {
+      {inputData.map((dataSegment, index) => {
         return (
-          <ul key={dataSegment} className={`${isMinimized ? "hidden" : ""}`}>
+          <ul key={dataSegment.id} className={`${isMinimized ? "hidden" : ""}`}>
+            {index !== 0 && <hr className="my-4 border-accent" />}
             {fields.map((fieldData, index) => {
               return (
                 <li key={fieldData.id} className="flex flex-col my-2">
@@ -40,7 +42,7 @@ export default function FieldCollection({
                       dataSegment === undefined
                         ? undefined
                         : dataSegment[`${Object.keys(dataSegment)[index + 1]}`]
-                            .data
+                          .data
                     }
                     onChange={handleChange}
                     data-id={dataSegment.id}
@@ -59,6 +61,8 @@ export default function FieldCollection({
           {isMinimized ? "Maximize" : "Minimize"}
         </button>
         <button
+          name={sectionName + " Add Button"}
+          onClick={handleAddClick}
           className={`${isMinimized ? "hidden" : ""} text-black bg-green-600 rounded px-3 py-1 my-2 ml-2`}
         >
           +

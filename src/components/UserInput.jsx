@@ -8,6 +8,7 @@ export default function UserInput({
   handleEdChange,
   pracExperience,
   handlePracChange,
+  handleAddFields
 }) {
   return (
     <div className="sticky top-6 flex-1 w-full bg-secondary border border-solid rounded">
@@ -22,12 +23,14 @@ export default function UserInput({
         fields={inputFieldsData.edExperience}
         inputData={edExperience}
         handleChange={handleEdChange}
+        handleAddClick={handleAddFields}
       />
       <FieldCollection
         sectionName="Practical Experience"
         fields={inputFieldsData.pracExperience}
         inputData={pracExperience}
         handleChange={handlePracChange}
+        handleAddClick={handleAddFields}
       />
     </div>
   );
